@@ -1,0 +1,87 @@
+[
+	{
+		"id":"a58ac5f7-c90c-4b32-b5fb-403ea51d8fb1",
+		"name":"Mr. Tojamora",
+		"price":12,
+		"detail1":"Japanese Whisky, Green Apple, Thyme, Soda",
+		"detail2":"served tall"
+	},
+	{
+		"id":"4408a1d7-a4b1-4795-8a2a-d205855ba329",
+		"name":"Bull Fighter",
+		"price":12,
+		"detail1":"Reposado Tequila, Lime, Cynar, Syrah Reduction, Black Pepper",
+		"detail2":"served on a rock"
+	},
+	{
+		"id":"fb41c5eb-5df7-4d37-9106-101e3371e6ca",
+		"name":"In the Year 2000",
+		"price":12,
+		"detail1":"House Whisky Blend, Citrus Stock, Orgeat, Banana, Clarified",
+		"detail2":"served on a rock"
+	},
+	{
+		"id":"d1b7d737-a284-4c6e-9932-6e080b1381d1",
+		"name":"Sad Bastard",
+		"price":11,
+		"detail1":"Gin, Lemon, Ginger, Bourbon, Grapefruit, Soda",
+		"detail2":"served tall"
+	},
+	{
+		"id":"aa627679-d4f8-43d9-9f57-8f621716877d",
+		"name":"Farmer's Daughter",
+		"price":12,
+		"detail1":"Gin, Raspberry, Lemon, Yellow Chartreuse, Egg Whites, Basil",
+		"detail2":"served up"
+	},
+	{
+		"id":"526af2e2-300c-4dee-97c3-fbf19db4d77d",
+		"name":"Ryan Gosling",
+		"price":12,
+		"detail1":"Rye, Lime, Dark Rum, Amaro, Cream Soda",
+		"detail2":"served on crushed ice"
+	},
+	{
+		"id":"6d461c3c-cead-443e-b0bd-fec83d99fcff",
+		"name":"Sumo Wrestler",
+		"price":11,
+		"detail1":"Bourbon, Yuzu, Nigori Sake",
+		"detail2":"served tall"
+	},
+	{
+		"id":"12f94ff5-540a-4f42-88e0-1e53dda069ff",
+		"name":"Strawberry Spritz",
+		"price":11,
+		"detail1":"Lofi Dry, Strawberry, Sparkling Wine, Soda"
+	},
+	{
+		"id":"94d3e73e-ab16-49f3-aa64-755fee958536",
+		"name":"Where There's Smoke, There's Fire",
+		"price":12,
+		"detail1":"Mezcal, Aperol, Lime, Grapefruit, Habanero",
+		"detail2":"served up"
+	},
+	{
+		"id":"97d425ad-9d36-4608-aff8-546881acefb5",
+		"name":"Pain Killer",
+		"price":12,
+		"detail1":"Pineapple Rum, Orange Juice, Coconut Milk, Orange Salt",
+		"detail2":"bklended"
+	},
+	{
+		"id":"f655386e-cb7d-4d0a-84dc-9a9b9b4a8b19",
+		"name":"Well Cocktails",
+		"price":9,
+		"detail1":"(1 Liquor + 1 Mixer)"
+	},
+	{
+		"id":"696f3b7d-c6dc-48b4-b0e5-722db3fc7d3e",
+		"name":"Chipotle Bloody Mary",
+		"price":11
+	},
+	{
+		"id":"8391233a-ecad-489f-90ca-7d4b48730920",
+		"name":"Moscow Mule",
+		"price":11
+	}
+]
