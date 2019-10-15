@@ -4,7 +4,29 @@
 		"name":"Mr. Tojamora",
 		"price":12,
 		"detail1":"Japanese Whisky, Green Apple, Thyme, Soda",
-		"detail2":"served tall"
+		"detail2":"served tall",
+		"ingredients": [
+			{
+				"type":"liquor",
+				"subtype":"whisky",
+				"name":"Japanese Whisky"
+			},
+			{
+				"type":"unknown",
+				"suptype":"unknown",
+				"name":"Green Apple"
+			},
+			{
+				"type":"unknown",
+				"subtype":"unknown",
+				"name":"Thyme"
+			},
+			{
+				"type":"mixer",
+				"subtype":"carbonated",
+				"name":"Soda"
+			}
+		]
 	},
 	{
 		"id":"4408a1d7-a4b1-4795-8a2a-d205855ba329",
@@ -72,7 +94,19 @@
 		"id":"f655386e-cb7d-4d0a-84dc-9a9b9b4a8b19",
 		"name":"Well Cocktails",
 		"price":9,
-		"detail1":"(1 Liquor + 1 Mixer)"
+		"detail1":"(1 Liquor + 1 Mixer)",
+		"ingredients": [
+			{
+				"type":"liquor",
+				"subtype":"default",
+				"name":"default"
+			},
+			{
+				"type":"mixer",
+				"subtype":"default",
+				"name":"default"
+			}
+		]
 	},
 	{
 		"id":"696f3b7d-c6dc-48b4-b0e5-722db3fc7d3e",
