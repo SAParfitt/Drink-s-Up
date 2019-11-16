@@ -22,6 +22,10 @@ export class Order {
     return this.itemList;
   }
 
+  orderCount() {
+    return this.itemList.length;
+  }
+
 }
 
 export class Drink {

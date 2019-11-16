@@ -1,102 +1,125 @@
-import React from 'react';
-import './App.css';
+import React, { useState } from 'react';
+import ReactDom from 'react-dom';
+import * as Utility from './Utility.js';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import AppBar from '@material-ui/core/AppBar';
+import Avatar from '@material-ui/core/Avatar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import Tooltip from '@material-ui/core/Tooltip';
+import PersonIcon from '@material-ui/icons/Person';
+import ListAltIcon from '@material-ui/icons/ListAlt';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import SettingsIcon from '@material-ui/icons/Settings';
+import Badge from '@material-ui/core/Badge';
 
-const DRINKS = [
-  ['manhattan', 'Manhattan'],
-  ['martini', 'Martini'],
-  ['longisland', 'Long Island Iced Tea'],
-  ['bluelongisland', 'Blue Long Island'],
-  ['oldfashioned', 'Old Fashioned']
-]
+import Menu from './Menu.js';
 
-const ID = 0;
-const NAME = 1;
 
-class fullPage extends React.Component {
+const LOGIN     = 0;
+const MENU      = 1;
+const CART      = 2;
+const SETTINGS  = 3;
 
-}
+const pages = ["Login", "Menu", "Cart", "Settings"];
 
-class DrinkerApp extends React.Component {
-  constructor(props)
-  {
-    super(props);
-    this.state = {order: []};
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(0),
+  },
+  title: {
+    flexGrow: 1,
+  },
+  avatar: {
+    marginRight: theme.spacing(2),
+  },
+  header: {
+    backgroundColor: "lightGrey",
+  },
+  menu: {
+    marginLeft: theme.spacing(1),
   }
+}));
 
-  componentDidMount() {
-    // Load Menu
+export default function Page() {
+  const classes = useStyles();
+
+  const [menu, setMenu] = useState(null);
+  const [selection, setSelection] = useState(null);
+  const [order, setOrder] = useState(new Utility.Order());
+  const [page, setPage] = useState(MENU);
+
+  if (!menu) {
     fetch('blackbird.json')
       .then(response => response.json())
-      .then(menu => this.setState({ menu: menu }))
+      .then(menu => setMenu(menu.map(drink => new Utility.Drink(drink))))
       .catch(e => console.log(e) );
   }
 
-  getMenu() {
-    if (!this.state.menu) {
-      return null;
+  document.title = 'Blackbird Bar';
+
+  const drinkSelect = id => {
+    if (id === selection) {
+      setSelection(null);
     } else {
-      let menu = [];
-      for (let drink of this.state.menu) {
-        menu.push(
-          <tr onClick={()=>this.drinkSelect(drink.id)}>
-            <td>{drink.name}</td>
-          </tr>
-        );
-      }
-      return menu;
+      setSelection(id);
     }
-  }
+  };
 
-  placeOrder() {
-    let order = this.state.order;
-    order.push(this.state.selection);
-    this.setState({order: order});
-  }
-
-  getOrders() {
-    if (!this.state || !this.state.order) {
-      return null;
-    } else {
-      let orders = [];
-      console.log(this.state);
-      for (let order of this.state.order) {
-        orders.push(
-          <tr>
-            <td>{order.name}</td><td>${order.price}</td>
-          </tr>
-          );
-      }
-      return orders;
-    }
-  }
-
-  drinkSelect(id) {
-    for (let item of this.state.menu) {
-      if (item.id === id) {
-        this.setState({selection: item});
-      }
-    }
-  }
-
-  render() {
-    return (
-      <div className="Menu">
-        <p>
-          Select Drink
-        </p>
-        <table>
-          {this.getMenu()}
-        </table>
-        <div className="button" onClick={()=>this.placeOrder()}>
-          Order
-        </div>
-
-        <table>
-          {this.getOrders()}
-        </table>
-      </div>
-    );
-  }
+  return (
+    <Container maxWidth="md" className={classes.root}>
+      <AppBar position="static">
+        <Toolbar>
+          <Avatar alt="Blackbird Bar" src="../blackbird.png" variant="rounded" className={classes.avatar} />
+          <Typography variant="h6" className={classes.title}>
+            Blackbird Bar
+          </Typography>
+          <Tooltip title="Menu">
+            <IconButton
+              edge="end"
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="menu"
+              onClick={() => setPage(MENU)}
+            >
+              <ListAltIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Cart">
+            <Badge badgeContent={order.orderCount()} color="secondary" overlap={"circle"}>
+              <IconButton
+                edge="end"
+                className={classes.menuButton}
+                color="inherit"
+                aria-label="cart"
+                onClick={() => setPage(CART)}
+              >
+                <ShoppingCartIcon />
+              </IconButton>
+            </Badge>
+          </Tooltip>
+          <Tooltip title="Settings">
+            <IconButton
+              edge="end"
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="settings"
+              onClick={() => setPage(SETTINGS)}
+            >
+              <SettingsIcon />
+            </IconButton>
+          </Tooltip>
+        </Toolbar>
+      </AppBar>
+      <AppBar position="static" className={classes.header}>
+        <Typography variant="h5">{pages[page]}</Typography>
+      </AppBar>
+    </Container>
+  );
 }
-
-export default DrinkerApp;
